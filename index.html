@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&display=swap');
+
+        body {
+            background-color: antiquewhite;
+
+            font-family: "Edu NSW ACT Foundation", cursive;
+            font-optical-sizing: auto;
+        }
+
+        .container {
+            background-color: rgb(255, 255, 255);
+            margin: 20px auto;
+            box-shadow: 10px 10px 5px grey;
+            padding: 30px;
+            width: 40%;
+            height: auto;
+            border-radius: 20px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .icecream-png {
+            margin: 20px 40px;
+        }
+
+        .price-btn {
+            text-align: right;
+            background-color: transparent;
+            margin: 5px 10px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .incri {
+            height: 15px;
+
+        }
+
+        .decri {
+            height: 15px;
+
+        }
+
+        .button {
+            margin-left: 150px;
+        }
+        .Total{
+            margin-left: 170px;
+        }
+        .buynow{
+            background-color:  #804000;
+            color: white;
+            padding: 10px 60px ;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: "Edu NSW ACT Foundation", cursive;
+            font-optical-sizing: auto;
+        }
+        .cart{
+            background-color:antiquewhite;
+            margin-left: 40px;
+            margin-top: 20px;
+            padding: 10px 60px ;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: "Edu NSW ACT Foundation", cursive;
+            font-optical-sizing: auto;
+
+        }
+        .buynow:hover{
+            color: black;
+            transition: all 0.3s ease-out;
+            background-color:antiquewhite;
+           
+        }
+        .cart:hover{
+            color: white;
+            transition: all 0.3s ease-out;
+            background-color:  #804000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ice-Cream</h1>
+        <div class="flex">
+            <div class="icecream-png">
+                <img src="./img/chocolate1.webp" alt="" style="height: 200px;"><br />
+            </div>
+            <div>
+                <h2>Dark Choclate</h2>
+
+                <p>Dark chocolate ice cream is a rich and decadent frozen treat made with creamy dairy and intense dark
+                    chocolate. Its velvety texture and deep cocoa flavor create a luxurious indulgence for chocolate
+                    lovers.</p>
+                <h3>Price : 110 ₹</h3>
+                <div class="button">
+                    <button class="price-btn"><img src="./img/minus-sign.png" class="incri" alt=""  onclick="decrement()"></button>
+                    <span class="count" id="count">1</span>
+                    <button class="price-btn"><img src="./img/add.png" class="decri" alt=""  onclick="increment()"></button>
+                </div>
+                <hr />
+                <p class="Total" id="total">Total: &nbsp;110 ₹</p>
+                <button class="buynow">Buy Now</button>
+                <button class="cart">Add to Cart</button>
+
+            </div>
+
+            
+        </div>
+
+        <p><strong>Price : 110 $</strong></p>
+        @shrutu's ice-cream parlour
+        since-2022
+
+    </div>
+    <script>
+        const QuantitText = document.getElementById("count");
+        const ShowTotal = document.getElementById('total');
+        function increment(){
+            let quantity = parseInt(QuantitText.innerText);
+            if(quantity < 10){
+                QuantitText.innerHTML = quantity + 1;
+                ShowTotal.innerHTML = "Total:"+ '&nbsp;'+(110*parseInt(QuantitText.innerText)).toFixed(2)+" ₹";
+        
+        }
+        else{
+            alert("You can't add more than 10 item")
+        }
+        setTotalAmount(quantity)
+    }
+    function decrement(){
+        let quantity =  parseInt(QuantitText.innerText);
+        if(quantity > 1){
+            QuantitText.innerHTML = quantity - 1 ;
+        }
+        else{
+            alert("No More Items Left in Stock")
+        }
+        setTotalAmount(quantity)
+    }
+    </script>
+</body>
+
+</html>
